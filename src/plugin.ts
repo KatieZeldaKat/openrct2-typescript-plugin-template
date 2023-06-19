@@ -2,8 +2,10 @@
 
 import { startup } from "./startup";
 
+export const pluginName = "Name of your plugin";
+
 registerPlugin({
-	name: "Name of your plugin",
+	name: pluginName,
 	version: "1.0",
 	authors: [ "Your name" ],
 	type: "remote",
