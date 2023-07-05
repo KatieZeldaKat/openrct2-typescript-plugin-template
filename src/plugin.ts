@@ -1,21 +1,13 @@
-/// <reference path="../lib/openrct2.d.ts" />
-
+// @ts-ignore
+import * as info from "./info.js";
 import { startup } from "./startup";
 
-export const pluginName = "Name of your plugin";
-
 registerPlugin({
-	name: pluginName,
-	version: "1.0",
-	authors: [ "Your name" ],
-	type: "remote",
-	licence: "MIT",
-	/**
-	 * This field determines which OpenRCT2 API version to use. It's best to always use the
-	 * latest release version, unless you want to use specific versions from a newer develop
-	 * version. Version 70 equals the v0.4.4 release.
-	 * @see https://github.com/OpenRCT2/OpenRCT2/blob/v0.4.4/src/openrct2/scripting/ScriptEngine.h#L50
-	 */
-	targetApiVersion: 70,
+	name: info.name,
+	version: info.version,
+	authors: info.authors,
+	type: info.type,
+	licence: info.license,
+	targetApiVersion: info.targetApiVersion,
 	main: startup,
 });
