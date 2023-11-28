@@ -10,7 +10,7 @@ import { name, version } from "./src/info.js";
 const options =
 {
 	/**
-	 * Change the file name of the output file here.
+	 * The filename of the output, taken from info.js
 	 */
 	filename: `${name}-v${version}.js`,
 

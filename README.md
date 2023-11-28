@@ -1,11 +1,11 @@
-# Simple OpenRCT2 plugin template with Typescript
+# OpenRCT2 TypeScript Plugin Template
 
-A simple and minimal template for OpenRCT2 plugins, using Typescript, without any unnecessary extra's.
+A simple and minimal template for OpenRCT2 plugins using TypeScript based on [Basssiiie's OpenRCT2-Simple-Typescript-Template](https://github.com/Basssiiie/OpenRCT2-Simple-Typescript-Template) with a few changes to file content and structure.
 
 Also supports:
-- Automatic plugin reload in OpenRCT2 (hot reload);
-- Out of the box minification to improve file sizes;
-- Support for external NPM packages (like FlexUI).
+- Automatic plugin reload in OpenRCT2 (hot reload)
+- Out of the box minification to improve file sizes
+- Support for external NPM packages (like FlexUI)
 
 ## How to start
 
@@ -13,7 +13,7 @@ Also supports:
 2. Use the green "Use this template" button in the top right corner of this page, or download the project to a location of your choice on your PC.
 3. Open a terminal or command prompt.
 4. Use `cd` to change your current directory to the root folder of this project.
-5. Run `npm install` to install the project's dependencies.
+5. Run `npm ci` to install the project's dependencies.
 6. Find `openrct2.d.ts` TypeScript API declaration file in OpenRCT2 files. copy it to `./lib/` folder.
    - This file can usually be found in the [OpenRCT2 installation directory](#openrct2-installation-directory).
    - Alternatively you can download the file from Github [here](https://raw.githubusercontent.com/OpenRCT2/OpenRCT2/develop/distribution/openrct2.d.ts).
@@ -40,7 +40,7 @@ Will start a script that will automatically run `npm run build:dev` every time y
 
 ### Output paths
 
-These output paths can be changed in `rollup.config.js`. In this file you can also change the outputted filename of the plugin.
+The output paths can be changed in `rollup.config.js`, specifically in the `getOutput()` method.
 
 ---
 
@@ -60,6 +60,12 @@ When your plugin is not loading properly, it may be useful to be able to read th
 2. Using the `cd` command, navigate to the folder where [OpenRCT2 is installed](#openrct2-installation-directory).
 3. Run `open OpenRCT2.app/Contents/MacOS/OpenRCT2` to launch OpenRCT2 with logging enabled.
 
+### Linux
+
+1. Launch a terminal or another command-line prompt.
+2. Using the `cd` command, navigate to the folder where [OpenRCT2 is installed](#openrct2-installation-directory).
+3. Run `./openrct2` to launch OpenRCT2 with logging enabled.
+
 ---
 
 ## Hot reload
@@ -67,7 +73,7 @@ When your plugin is not loading properly, it may be useful to be able to read th
 This project supports the [OpenRCT2 hot reload feature](https://github.com/OpenRCT2/OpenRCT2/blob/master/distribution/scripting.md#writing-scripts) for development.
 
 1. Navigate to your [OpenRCT2 user directory](#openrct2-user-directory) and open the `config.ini` file.
-2. Enable hot reload by setting `enable_hot_reloading = true` in `config.ini`.
+2. Enable hot reload by setting `enable_hot_reloading = true` in the file.
 3. Run `npm start` in the directory of this project to start the hot reload server.
 4. Start the OpenRCT2 and load a save or start a new game.
 5. Each time you save any of the files in `./src/`, the server will compile `./src/registerPlugin.ts` and place compiled plugin file inside your local OpenRCT2 plugin directory.
@@ -81,7 +87,7 @@ This project supports the [OpenRCT2 hot reload feature](https://github.com/OpenR
 
 This is the directory where the game is installed.
 
-- **Windows:** usually `C:/Users/<YOUR NAME>/Documents/OpenRCT2/bin/` when using the launcher or `C:/Program Files/OpenRCT2/` when an installer was used.
+- **Windows:** usually `C:/Users/<USERNAME>/Documents/OpenRCT2/bin/` when using the launcher or `C:/Program Files/OpenRCT2/` when an installer was used.
 - **MacOS:** the folder where the `OpenRCT2.app` application file was placed.
 - **Linux:** depends on the distro, but likely either `/usr/share/openrct2` when installed through a package manager, or mounted in `/tmp` when using an AppImage.
 
@@ -89,9 +95,9 @@ This is the directory where the game is installed.
 
 This is the directory where the game stores user data, like save games and plugins.
 
-- **Windows:** usually `Documents/OpenRCT2/` or `C:/Users/<YOUR NAME>/Documents/OpenRCT2/`.
-- **MacOS:** usually `/Users/<YOUR NAME>/Library/Application Support/OpenRCT2/`. Note that `Library` is a hidden folder in your user directory, so by default it will not show up in Finder.
-- **Linux:** usually `/home/<YOUR NAME>/.config`, `$HOME/.config`, or where the environment variable `$XDG_CONFIG_HOME` points to if it's set.
+- **Windows:** usually `Documents/OpenRCT2/` or `C:/Users/<USERNAME>/Documents/OpenRCT2/`.
+- **MacOS:** usually `/Users/<USERNAME>/Library/Application Support/OpenRCT2/`. Note that `Library` is a hidden folder in your user directory, so by default it will not show up in Finder.
+- **Linux:** usually `/home/<USERNAME>/.config`, `$HOME/.config`, or where the environment variable `$XDG_CONFIG_HOME` points to if it's set.
 
 You can also open this folder from inside OpenRCT2, by selecting "Open custom content folder" in the dropdown under the red toolbox in the main menu.
 
