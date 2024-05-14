@@ -1,6 +1,6 @@
 # OpenRCT2 TypeScript Plugin Template
 
-A simple and minimal template for OpenRCT2 plugins using TypeScript based on [Basssiiie's OpenRCT2-Simple-Typescript-Template](https://github.com/Basssiiie/OpenRCT2-Simple-Typescript-Template) with a few changes to file content and structure.
+A simple template for OpenRCT2 plugins using TypeScript based on [Basssiiie's OpenRCT2-Simple-Typescript-Template](https://github.com/Basssiiie/OpenRCT2-Simple-Typescript-Template) with a few changes to file content and structure. It's primarily designed for my own personal use, but feel free to use it if you like the changes I have made.
 
 Also supports:
 - Automatic plugin reload in OpenRCT2 (hot reload)
@@ -14,33 +14,40 @@ Also supports:
 3. Open a terminal or command prompt.
 4. Use `cd` to change your current directory to the root folder of this project.
 5. Run `npm ci` to install the project's dependencies.
-6. Find `openrct2.d.ts` TypeScript API declaration file in OpenRCT2 files. copy it to `./lib/` folder.
-   - This file can usually be found in the [OpenRCT2 installation directory](#openrct2-installation-directory).
-   - Alternatively you can download the file from Github [here](https://raw.githubusercontent.com/OpenRCT2/OpenRCT2/develop/distribution/openrct2.d.ts).
-   - Another option is to make a symbolic link instead of copying the file, which will keep the file up to date whenever you install new versions of OpenRCT2.
-7. In `./src/info.js`, change plugin info, such as name and author, to your liking.
+6. Place `openrct2.d.ts` in the project's files [as described here](./lib/put-openrct2.d.ts-here.md).
+7. In [info.js](./src/info.js), change plugin info, such as name and author, to your liking.
 
----
+## Dependencies
+
+The following libraries and tools are used in this template:
+
+- **NodeJS** is the JavaScript engine used to develop and run code when the game is not running.
+- **NPM** is a library and package manager for JavasScript and TypeScript and can be used to install new packages and update existing packages in the project.
+- **TypeScript** is a expansion language to JavaScript that adds type checking when you are writing the code. It allows you to specify rules for how objects and values look like, so TypeScript can report back if your code follows these rules (instead of crashes or errors in-game).
+- **Rollup** bundles all source code, runs it through some plugins like TypeScript, and then outputs a single JavaScript plugin file.
+- **Nodemon** is the program that can watch a folder for changes and then trigger a specified action. It is used by `npm start` to watch the `./src/` folder and triggers `npm run build:dev` if any changes occur.
 
 ## Commands
 
-The template comes with several terminal commands to make developing plugins easier.
+Multiple commands are detailed below to help with development. They output files to different directories, which can be changed in `rollup.config.js`. Be sure to not commit any changes you should make to the output paths when collaborating with others.
+
+### Create release build
 
 `npm run build`
 
-Creates a release build of your plugin. This version is optimized for sharing with others, using Terser to make the file as small as possible. By default, the plugin will be outputted to `./dist/`.
+This version is optimized for sharing with others, using Terser to make the file as small as possible. By default, the plugin will be outputted to `./dist/`.
+
+### Create dev build
 
 `npm run build:dev`
 
-Creates a develop build of your plugin. This version is not optimized for sharing, but easier to read in case you want to see the outputted Javascript. By default, the plugin will be outputted in the plugin folder of the default [OpenRCT2 user directory](#openrct2-user-directory).
+This version is not optimized for sharing, but easier to read in case you want to see the outputted Javascript. By default, the plugin will be outputted in the plugin folder of the default [OpenRCT2 user directory](#openrct2-user-directory).
+
+### Run script to automatically create dev builds
 
 `npm start` or `npm run start`
 
 Will start a script that will automatically run `npm run build:dev` every time you make a change to any Typescript or Javascript file inside the `./src/` folder.
-
-### Output paths
-
-The output paths can be changed in `rollup.config.js`, specifically in the `getOutput()` method.
 
 ---
 
@@ -52,7 +59,8 @@ When your plugin is not loading properly, it may be useful to be able to read th
 
 1. Navigate to the folder where [OpenRCT2 is installed](#openrct2-installation-directory).
 2. Launch the `openrct2.com` file located there (the MS-DOS application).
-	- If file extensions are hidden, make sure to [enable them](https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01).
+
+    - If file extensions are hidden, make sure to [enable them](https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01).
 
 ### MacOS
 
@@ -100,15 +108,3 @@ This is the directory where the game stores user data, like save games and plugi
 - **Linux:** usually `/home/<USERNAME>/.config`, `$HOME/.config`, or where the environment variable `$XDG_CONFIG_HOME` points to if it's set.
 
 You can also open this folder from inside OpenRCT2, by selecting "Open custom content folder" in the dropdown under the red toolbox in the main menu.
-
----
-
-## Dependencies
-
-The following libraries and tools are used in this template:
-
-- **NodeJS** is the JavaScript engine used to develop and run code when the game is not running.
-- **NPM** is a library and package manager for JavasScript and TypeScript and can be used to install new packages and update existing packages in the project.
-- **TypeScript** is a expansion language to JavaScript that adds type checking when you are writing the code. It allows you to specify rules for how objects and values look like, so TypeScript can report back if your code follows these rules (instead of crashes or errors in-game).
-- **Rollup** bundles all source code, runs it through some plugins like TypeScript, and then outputs a single JavaScript plugin file.
-- **Nodemon** is the program that can watch a folder for changes and then trigger a specified action. It is used by `npm start` to watch the `./src/` folder and triggers `npm run build:dev` if any changes occur.
