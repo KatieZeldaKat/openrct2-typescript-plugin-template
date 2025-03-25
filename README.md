@@ -3,6 +3,7 @@
 A simple template for OpenRCT2 plugins using TypeScript based on [Basssiiie's OpenRCT2-Simple-Typescript-Template](https://github.com/Basssiiie/OpenRCT2-Simple-Typescript-Template) with a few changes to file content and structure. It's primarily designed for my own personal use, but feel free to use it if you like the changes I have made.
 
 Also supports:
+
 - Automatic plugin reload in OpenRCT2 (hot reload)
 - Out of the box minification to improve file sizes
 - Support for external NPM packages (like FlexUI)
@@ -14,8 +15,8 @@ Also supports:
 3. Open a terminal or command prompt.
 4. Use `cd` to change your current directory to the root folder of this project.
 5. Run `npm ci` to install the project's dependencies.
-6. Place `openrct2.d.ts` in the project's files [as described here](./lib/put-openrct2.d.ts-here.md).
-7. In [info.js](./src/info.js), change plugin info, such as name and author, to your liking.
+6. Place `openrct2.d.ts` in the project's files [as described here](/lib/put-openrct2.d.ts-here.md).
+7. In [info.js](/src/info.js), change plugin info, such as name and author, to your liking.
 
 ## Dependencies
 
